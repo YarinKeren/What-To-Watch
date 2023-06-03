@@ -222,7 +222,7 @@ function sendMessageToChatGPT(customGenre) {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Bearer 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", // Replace with your OpenAI API key
+          "Bearer ADD_API_KEY", // Replace with your OpenAI API key
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
