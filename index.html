@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <title>Show and Movie Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body class="d-flex flex-column h-100">
+    <div class="container card">
+      <div class="card-body">
+      <h1 class="text-center mt-5">TV Shows and Movies Suggestions</h1>
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+          <div class="form-group">
+            <form action="">
+            <label for="genre-select">Select a genre:</label>
+            <select id="genre-select" class="form-control form-element">
+              <!-- The options will be dynamically added via JavaScript -->
+            </select>
+            <label for="freesearch">Or...</label>
+            <input placeholder="Type a Genre" type="text" id="freesearch" class="form-control form-element"/>
+          </div>
+          <div class="text-center">
+            <button id="search-btn" class="btn btn-primary">Search</button>
+          </div>
+          </form>
+        </div>
+      </div>
+      <div id="show-list" class="card-container"></div>
+    </div>
+  </div>
+  <footer class="footer mt-auto bg-dark h-1 text-center fixed-bottom">
+      <span class="text-light">Created by Yarin Keren</span>
+  </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
