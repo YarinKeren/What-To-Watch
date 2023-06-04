@@ -274,6 +274,98 @@ function createCard(show) {
   showList.appendChild(card);
 }
 
+<<<<<<< HEAD
+=======
+// Fetch shows and movies based on the selected genre
+function fetchShowsAndMovies(selectedGenre) {
+  // Clear the previous results
+  showList.innerHTML = "";
+  genreSelect.value = "Select";
+  // Fetch TV shows by the selected genre from the TVmaze API
+  fetch(`https://api.tvmaze.com/shows`)
+    .then((response) => response.json())
+    .then((shows) => {
+      const filteredShows = shows.filter((show) =>
+        show.genres.includes(selectedGenre)
+      );
+      // filteredShows.forEach((show) => {
+      //   const showItem = document.createElement("div");
+      //   showItem.textContent = show.name + " (TV Show)";
+      //   showList.appendChild(showItem);
+      // });
+      filteredShows.forEach((show) => {
+        createCard(show);
+      });
+    })
+    .catch((error) => console.error("Error fetching TV shows:", error));
+
+  // Fetch movies by the selected genre from the OMDb API
+  fetch(`http://www.omdbapi.com/?apikey=1400e9a9&type=movie&s=${selectedGenre}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.Response === "True") {
+        const movies = data.Search;
+        movies.forEach((movie) => {
+          // const movieItem = document.createElement("div");
+          // movieItem.textContent = movie.Title + " (Movie)";
+          // showList.appendChild(movieItem);
+          // console.log(movie);
+          fetch(`http://www.omdbapi.com/?apikey=1400e9a9&i=${movie.imdbID}`)
+            .then((response) => response.json())
+            .then((m) => createCard(m))
+            .catch((error) =>
+              console.log("Error fetching data from imdb", error)
+            );
+        });
+      } else {
+        console.error("Error fetching movies:", data.Error);
+      }
+    })
+    .catch((error) => console.error("Error fetching movies:", error));
+}
+
+//Function to send a message to the ChatGPT API
+function sendMessageToChatGPT(customGenre) {
+  showList.innerHTML = "";
+  const queryToGPT = `Please recommend ONLY one TV Show or Movie in the ${customGenre} Genre,
+                      Answer by a json object with the properties -
+                      title as title,
+                      short summary as summary,
+                      link to imdb as imdb,
+                      TVShow or Movie as type`;
+  customGenreInput.value = "";
+  return new Promise((resolve, reject) => {
+    toggleButton();
+    fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer ADD_API_KEY", // Replace with your OpenAI API key
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: "You" },
+          { role: "user", content: queryToGPT },
+        ],
+        max_tokens: 100,
+        temperature: 0.7,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const showObject = JSON.parse(data.choices[0].message.content);
+        fetchImageURL(showObject).then((image) => {
+          showObject.image = image;
+          createCard(showObject);
+        });
+      })
+      .catch((error) => reject(console.log(error)));
+  });
+}
+
+>>>>>>> d38d6087f4805488e44072c52ed0efef35c6b05f
 // Event listener for the search button
 searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
