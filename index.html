@@ -8,35 +8,63 @@
       type="text/css"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body class="d-flex flex-column h-100">
-    <div class="container card">
+    <div class="container card my-5">
       <div class="card-body">
-      <h1 class="text-center mt-5">TV Shows and Movies Suggestions</h1>
-      <div class="row justify-content-center mt-5">
-        <div class="col-lg-6 col-md-8 col-sm-10">
-          <div class="form-group">
-            <form action="">
-            <label for="genre-select">Select a genre:</label>
-            <select id="genre-select" class="form-control form-element">
-              <!-- The options will be dynamically added via JavaScript -->
-            </select>
-            <label for="freesearch">Or...</label>
-            <input placeholder="Type a Genre" type="text" id="freesearch" class="form-control form-element"/>
-          </div>
-          <div class="text-center">
-            <button id="search-btn" class="btn btn-primary">Search</button>
-          </div>
-          </form>
+        <div class="text-center d-block m-auto headcontainer">
+          <h1 class="text-center mt-2" id="header">What to Watch ?!</h1>
         </div>
+        <div class="row justify-content-center mt-2">
+          <div class="col-lg-6 col-md-8 col-sm-10">
+            <form id="search-form" action="">
+              <div class="form-group">
+                <label for="genre-select">Select a genre:</label>
+                <select id="genre-select" class="form-control form-element">
+                  <!-- The options will be dynamically added via JavaScript -->
+                </select>
+                <label for="freesearch">Or...</label>
+                <input
+                  placeholder="Type a Genre"
+                  type="text"
+                  id="freesearch"
+                  class="form-control form-element"
+                />
+              </div>
+              <div class="text-center">
+                <button id="search-btn" class="btn btn-primary" type="submit">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="show-list" class="card-container"></div>
       </div>
-      <div id="show-list" class="card-container"></div>
     </div>
-  </div>
-  <footer class="footer mt-auto bg-dark h-1 text-center fixed-bottom">
-      <span class="text-light">Created by Yarin Keren</span>
-  </footer>
+    <footer class="footer mt-auto bg-dark h-1 text-center fixed-bottom">
+      <div class="footer-icons">
+        <span class="text-light">Created by Yarin Keren</span>
+        <a href="https://github.com/YarinKeren" target="_blank"
+          ><i class="fab fa-github fa-lg"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/yarinkeren/" target="_blank"
+          ><i class="fab fa-linkedin fa-lg"></i
+        ></a>
+      </div>
+    </footer>
+    <script src="config.js"></script>
     <script src="app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3c8dec827a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,9 +1,6 @@
 body {
   background-color: #f6f6ff;
-}
-
-h1 {
-  color: #6a0dad;
+  font-family: "Roboto", sans-serif;
 }
 
 .btn-primary {
@@ -24,11 +21,8 @@ h1 {
 
 .card-container {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
   align-content: center;
 }
 
@@ -36,15 +30,50 @@ h1 {
   margin-bottom: 10px;
 }
 
-.btn {
+#search-btn {
   margin-bottom: 20px;
 }
 
 .container {
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   width: 60%;
 }
 
 .card {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.footer-icons a {
+  display: inline-block;
+  color: #f2eaff;
+  padding: 5px;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3; /* Adjust the number of lines as needed */
+  /* Set the height of each line based on your desired spacing */
+  line-height: 2.2em;
+}
+
+#header {
+  font-family: "League Gothic", sans-serif;
+  font-size: 4rem;
+}
+
+.headcontainer {
+  width: 50%;
+}
+
+.card-body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img-top {
+  height: 50%;
 }
